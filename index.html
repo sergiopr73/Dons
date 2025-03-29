@@ -1,187 +1,527 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Teste de Descoberta de Dons Espirituais</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset e configuração básica */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #74ABE2, #5563DE);
-            color: #333;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        p {
-            margin-bottom: 15px;
-        }
-        fieldset {
-            border: none;
-            margin-bottom: 30px;
-            padding: 0;
-        }
-        fieldset > legend {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: #5563DE;
-            font-weight: 500;
-            border-bottom: 2px solid #5563DE;
-            padding-bottom: 5px;
-        }
-        .question {
-            margin-bottom: 20px;
-        }
-        .question p {
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-        .options label {
-            margin-right: 15px;
-            font-size: 0.9em;
-        }
-        input[type="radio"] {
-            margin-right: 5px;
-        }
-        button {
-            background: #5563DE;
-            color: #fff;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            display: block;
-            margin: 0 auto;
-        }
-        button:hover {
-            background: #3d4bb7;
-        }
-        #results {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teste de Descoberta de Dons Espirituais</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+<style>
+/* Reset e configuração básica */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+body {
+font-family: 'Roboto', sans-serif;
+background: linear-gradient(135deg, #74ABE2, #5563DE);
+color: #333;
+padding: 20px;
+line-height: 1.6;
+}
+h1 {
+text-align: center;
+margin-bottom: 20px;
+color: #fff;
+}
+.container {
+max-width: 900px;
+margin: 0 auto;
+background: #fff;
+border-radius: 10px;
+padding: 30px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+p {
+margin-bottom: 15px;
+}
+fieldset {
+border: none;
+margin-bottom: 30px;
+padding: 0;
+}
+fieldset > legend {
+font-size: 1.5em;
+margin-bottom: 15px;
+color: #5563DE;
+font-weight: 500;
+border-bottom: 2px solid #5563DE;
+padding-bottom: 5px;
+}
+.question {
+margin-bottom: 20px;
+}
+.question p {
+margin-bottom: 10px;
+font-weight: 500;
+}
+.options label {
+margin-right: 15px;
+font-size: 0.9em;
+}
+input[type="radio"] {
+margin-right: 5px;
+}
+button {
+background: #5563DE;
+color: #fff;
+border: none;
+padding: 15px 25px;
+border-radius: 5px;
+font-size: 1em;
+cursor: pointer;
+transition: background 0.3s ease;
+display: block;
+margin: 0 auto;
+}
+button:hover {
+background: #3d4bb7;
+}
+#results {
+background: #fff;
+padding: 20px;
+border-radius: 10px;
+margin-top: 30px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+ul, ol {
+margin-left: 20px;
+margin-bottom: 15px;
+}
+</style>
 </head>
 <body>
-    <h1>Teste de Descoberta de Dons Espirituais</h1>
-    <div class="container">
-        <p>
-            Instruções: Leia com atenção e responda com sinceridade. Use uma escala de 1 a 5 para cada afirmativa:<br>
-            1 = Nunca / 2 = Raramente / 3 = Às vezes / 4 = Frequentemente / 5 = Quase sempre
-        </p>
-        <form id="testForm">
-            <!-- Parte 1 – Percepções internas -->
-            <fieldset>
-                <legend>Parte 1 – Percepções internas</legend>
-                <div class="question">
-                    <p>1. Sinto alegria profunda ao ensinar a Palavra com clareza a outros.</p>
-                    <div class="options">
-                        <label><input type="radio" name="q1" value="1" required> 1</label>
-                        <label><input type="radio" name="q1" value="2"> 2</label>
-                        <label><input type="radio" name="q1" value="3"> 3</label>
-                        <label><input type="radio" name="q1" value="4"> 4</label>
-                        <label><input type="radio" name="q1" value="5"> 5</label>
-                    </div>
-                </div>
-                <!-- Outras perguntas aqui... -->
-            </fieldset>
-            <!-- Outras partes do formulário aqui... -->
-            <button type="submit">Calcular Resultados</button>
-        </form>
-        <div id="results"></div>
-        <script>
-            document.getElementById('testForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                // Mapeamento dos dons espirituais e suas perguntas
-                const mapping = {
-                    "Ensino": [1, 9, 19, 29],
-                    "Profecia": [8, 18, 28],
-                    "Discernimento": [2, 12, 22],
-                    "Fé": [3, 13, 23],
-                    "Misericórdia": [4, 14, 24],
-                    "Liderança": [5, 15, 25],
-                    "Exortação": [6, 11, 26],
-                    "Serviço": [7, 17, 27],
-                    "Pastoreio": [10, 20, 30]
-                };
-                // Inicialização das pontuações para cada dom
-                const scores = {
-                    "Ensino": 0,
-                    "Profecia": 0,
-                    "Discernimento": 0,
-                    "Fé": 0,
-                    "Misericórdia": 0,
-                    "Liderança": 0,
-                    "Exortação": 0,
-                    "Serviço": 0,
-                    "Pastoreio": 0
-                };
-                // Soma as respostas de cada domínio
-                for (const domain in mapping) {
-                    mapping[domain].forEach(qNum => {
-                        const radios = document.getElementsByName('q' + qNum);
-                        let value = 0;
-                        for (let radio of radios) {
-                            if (radio.checked) {
-                                value = parseInt(radio.value);
-                                break;
-                            }
-                        }
-                        scores[domain] += value;
-                    });
-                }
-                // Ordena os resultados
-                const resultsArray = [];
-                for (const domain in scores) {
-                    resultsArray.push({ domain: domain, score: scores[domain] });
-                }
-                resultsArray.sort((a, b) => b.score - a.score);
-                // Seleciona os 3 maiores pontuadores
-                const top3 = resultsArray.slice(0, 3);
-                // Exibe os resultados
-                let output = "<h2>Resultados</h2>";
-                output += "<h3>Pontuação por Dom Espiritual:</h3><ul>";
-                resultsArray.forEach(item => {
-                    output += `<li>${item.domain}: ${item.score}</li>`;
-                });
-                output += "</ul>";
-                output += "<h3>Top 3 Dons Espirituais:</h3><ol>";
-                top3.forEach(item => {
-                    output += `<li>${item.domain} (Pontuação: ${item.score})</li>`;
-                });
-                output += "</ol>";
-                output += "<p>Os 3 maiores pontuadores revelam áreas fortes onde Deus pode estar te usando ou querendo te despertar.</p>";
-                document.getElementById('results').innerHTML = output;
-            });
-        </script>
-    </div>
+<h1>Teste de Descoberta de Dons Espirituais</h1>
+<div class="container">
+<p>
+Instruções: Leia com atenção e responda com sinceridade. Use a escala de 1 a 5 para cada afirmativa:<br>
+1 = Nunca / 2 = Raramente / 3 = Às vezes / 4 = Frequentemente / 5 = Quase sempre
+</p>
+<form id="testForm">
+<!-- Parte 1 – Percepções internas -->
+<fieldset>
+<legend>Parte 1 – Percepções internas</legend>
+
+<div class="question">
+<p>1. Sinto alegria profunda ao ensinar a Palavra com clareza a outros.</p>
+<div class="options">
+<label><input type="radio" name="q1" value="1" required> 1</label>
+<label><input type="radio" name="q1" value="2"> 2</label>
+<label><input type="radio" name="q1" value="3"> 3</label>
+<label><input type="radio" name="q1" value="4"> 4</label>
+<label><input type="radio" name="q1" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>2. Tenho facilidade em perceber quando algo espiritual está fora de ordem, mesmo sem explicação lógica.</p>
+<div class="options">
+<label><input type="radio" name="q2" value="1" required> 1</label>
+<label><input type="radio" name="q2" value="2"> 2</label>
+<label><input type="radio" name="q2" value="3"> 3</label>
+<label><input type="radio" name="q2" value="4"> 4</label>
+<label><input type="radio" name="q2" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>3. Oro com fé, mesmo quando a situação parece impossível.</p>
+<div class="options">
+<label><input type="radio" name="q3" value="1" required> 1</label>
+<label><input type="radio" name="q3" value="2"> 2</label>
+<label><input type="radio" name="q3" value="3"> 3</label>
+<label><input type="radio" name="q3" value="4"> 4</label>
+<label><input type="radio" name="q3" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>4. Sinto uma urgência natural em ajudar os necessitados.</p>
+<div class="options">
+<label><input type="radio" name="q4" value="1" required> 1</label>
+<label><input type="radio" name="q4" value="2"> 2</label>
+<label><input type="radio" name="q4" value="3"> 3</label>
+<label><input type="radio" name="q4" value="4"> 4</label>
+<label><input type="radio" name="q4" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>5. Gosto de organizar coisas e tenho facilidade em liderar equipes.</p>
+<div class="options">
+<label><input type="radio" name="q5" value="1" required> 1</label>
+<label><input type="radio" name="q5" value="2"> 2</label>
+<label><input type="radio" name="q5" value="3"> 3</label>
+<label><input type="radio" name="q5" value="4"> 4</label>
+<label><input type="radio" name="q5" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>6. Fico incomodado ao ver a igreja sem unidade e sinto desejo de agir.</p>
+<div class="options">
+<label><input type="radio" name="q6" value="1" required> 1</label>
+<label><input type="radio" name="q6" value="2"> 2</label>
+<label><input type="radio" name="q6" value="3"> 3</label>
+<label><input type="radio" name="q6" value="4"> 4</label>
+<label><input type="radio" name="q6" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>7. Tenho prazer em servir nos bastidores, sem necessidade de reconhecimento.</p>
+<div class="options">
+<label><input type="radio" name="q7" value="1" required> 1</label>
+<label><input type="radio" name="q7" value="2"> 2</label>
+<label><input type="radio" name="q7" value="3"> 3</label>
+<label><input type="radio" name="q7" value="4"> 4</label>
+<label><input type="radio" name="q7" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>8. Sinto que Deus me dá mensagens específicas para pessoas ou grupos.</p>
+<div class="options">
+<label><input type="radio" name="q8" value="1" required> 1</label>
+<label><input type="radio" name="q8" value="2"> 2</label>
+<label><input type="radio" name="q8" value="3"> 3</label>
+<label><input type="radio" name="q8" value="4"> 4</label>
+<label><input type="radio" name="q8" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>9. Tenho facilidade em aprender e explicar a Palavra com profundidade.</p>
+<div class="options">
+<label><input type="radio" name="q9" value="1" required> 1</label>
+<label><input type="radio" name="q9" value="2"> 2</label>
+<label><input type="radio" name="q9" value="3"> 3</label>
+<label><input type="radio" name="q9" value="4"> 4</label>
+<label><input type="radio" name="q9" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>10. Me preocupo com os detalhes da vida espiritual das pessoas e quero vê-las crescer.</p>
+<div class="options">
+<label><input type="radio" name="q10" value="1" required> 1</label>
+<label><input type="radio" name="q10" value="2"> 2</label>
+<label><input type="radio" name="q10" value="3"> 3</label>
+<label><input type="radio" name="q10" value="4"> 4</label>
+<label><input type="radio" name="q10" value="5"> 5</label>
+</div>
+</div>
+</fieldset>
+
+<!-- Parte 2 – Reconhecimento dos outros -->
+<fieldset>
+<legend>Parte 2 – Reconhecimento dos outros</legend>
+
+<div class="question">
+<p>11. Já disseram que fui uma bênção com uma palavra que dei na hora certa.</p>
+<div class="options">
+<label><input type="radio" name="q11" value="1" required> 1</label>
+<label><input type="radio" name="q11" value="2"> 2</label>
+<label><input type="radio" name="q11" value="3"> 3</label>
+<label><input type="radio" name="q11" value="4"> 4</label>
+<label><input type="radio" name="q11" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>12. Me procuram com frequência para conselhos espirituais.</p>
+<div class="options">
+<label><input type="radio" name="q12" value="1" required> 1</label>
+<label><input type="radio" name="q12" value="2"> 2</label>
+<label><input type="radio" name="q12" value="3"> 3</label>
+<label><input type="radio" name="q12" value="4"> 4</label>
+<label><input type="radio" name="q12" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>13. Já disseram que minha fé os inspira ou fortalece.</p>
+<div class="options">
+<label><input type="radio" name="q13" value="1" required> 1</label>
+<label><input type="radio" name="q13" value="2"> 2</label>
+<label><input type="radio" name="q13" value="3"> 3</label>
+<label><input type="radio" name="q13" value="4"> 4</label>
+<label><input type="radio" name="q13" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>14. Reconhecem minha sensibilidade com os que sofrem.</p>
+<div class="options">
+<label><input type="radio" name="q14" value="1" required> 1</label>
+<label><input type="radio" name="q14" value="2"> 2</label>
+<label><input type="radio" name="q14" value="3"> 3</label>
+<label><input type="radio" name="q14" value="4"> 4</label>
+<label><input type="radio" name="q14" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>15. Costumam me chamar para organizar, liderar ou estruturar algo.</p>
+<div class="options">
+<label><input type="radio" name="q15" value="1" required> 1</label>
+<label><input type="radio" name="q15" value="2"> 2</label>
+<label><input type="radio" name="q15" value="3"> 3</label>
+<label><input type="radio" name="q15" value="4"> 4</label>
+<label><input type="radio" name="q15" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>16. Me procuram para interceder ou orar por situações difíceis.</p>
+<div class="options">
+<label><input type="radio" name="q16" value="1" required> 1</label>
+<label><input type="radio" name="q16" value="2"> 2</label>
+<label><input type="radio" name="q16" value="3"> 3</label>
+<label><input type="radio" name="q16" value="4"> 4</label>
+<label><input type="radio" name="q16" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>17. Elogiam meu serviço, mesmo em tarefas simples.</p>
+<div class="options">
+<label><input type="radio" name="q17" value="1" required> 1</label>
+<label><input type="radio" name="q17" value="2"> 2</label>
+<label><input type="radio" name="q17" value="3"> 3</label>
+<label><input type="radio" name="q17" value="4"> 4</label>
+<label><input type="radio" name="q17" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>18. Já me disseram que uma palavra minha parecia vinda diretamente de Deus.</p>
+<div class="options">
+<label><input type="radio" name="q18" value="1" required> 1</label>
+<label><input type="radio" name="q18" value="2"> 2</label>
+<label><input type="radio" name="q18" value="3"> 3</label>
+<label><input type="radio" name="q18" value="4"> 4</label>
+<label><input type="radio" name="q18" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>19. Me reconhecem como alguém que ensina com clareza.</p>
+<div class="options">
+<label><input type="radio" name="q19" value="1" required> 1</label>
+<label><input type="radio" name="q19" value="2"> 2</label>
+<label><input type="radio" name="q19" value="3"> 3</label>
+<label><input type="radio" name="q19" value="4"> 4</label>
+<label><input type="radio" name="q19" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>20. Veem em mim constância, cuidado e pastoreio, mesmo sem um título.</p>
+<div class="options">
+<label><input type="radio" name="q20" value="1" required> 1</label>
+<label><input type="radio" name="q20" value="2"> 2</label>
+<label><input type="radio" name="q20" value="3"> 3</label>
+<label><input type="radio" name="q20" value="4"> 4</label>
+<label><input type="radio" name="q20" value="5"> 5</label>
+</div>
+</div>
+</fieldset>
+
+<!-- Parte 3 – Desejo espiritual -->
+<fieldset>
+<legend>Parte 3 – Desejo espiritual</legend>
+
+<div class="question">
+<p>21. Ensinar e discipular com profundidade e paciência.</p>
+<div class="options">
+<label><input type="radio" name="q21" value="1" required> 1</label>
+<label><input type="radio" name="q21" value="2"> 2</label>
+<label><input type="radio" name="q21" value="3"> 3</label>
+<label><input type="radio" name="q21" value="4"> 4</label>
+<label><input type="radio" name="q21" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>22. Proteger a igreja de engano espiritual e trazer discernimento.</p>
+<div class="options">
+<label><input type="radio" name="q22" value="1" required> 1</label>
+<label><input type="radio" name="q22" value="2"> 2</label>
+<label><input type="radio" name="q22" value="3"> 3</label>
+<label><input type="radio" name="q22" value="4"> 4</label>
+<label><input type="radio" name="q22" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>23. Interceder por milagres, curas e respostas sobrenaturais.</p>
+<div class="options">
+<label><input type="radio" name="q23" value="1" required> 1</label>
+<label><input type="radio" name="q23" value="2"> 2</label>
+<label><input type="radio" name="q23" value="3"> 3</label>
+<label><input type="radio" name="q23" value="4"> 4</label>
+<label><input type="radio" name="q23" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>24. Atender aos necessitados e minorias com ações práticas.</p>
+<div class="options">
+<label><input type="radio" name="q24" value="1" required> 1</label>
+<label><input type="radio" name="q24" value="2"> 2</label>
+<label><input type="radio" name="q24" value="3"> 3</label>
+<label><input type="radio" name="q24" value="4"> 4</label>
+<label><input type="radio" name="q24" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>25. Gerar visão, ordem e estratégias para crescimento coletivo.</p>
+<div class="options">
+<label><input type="radio" name="q25" value="1" required> 1</label>
+<label><input type="radio" name="q25" value="2"> 2</label>
+<label><input type="radio" name="q25" value="3"> 3</label>
+<label><input type="radio" name="q25" value="4"> 4</label>
+<label><input type="radio" name="q25" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>26. Promover reconciliação e unidade entre irmãos.</p>
+<div class="options">
+<label><input type="radio" name="q26" value="1" required> 1</label>
+<label><input type="radio" name="q26" value="2"> 2</label>
+<label><input type="radio" name="q26" value="3"> 3</label>
+<label><input type="radio" name="q26" value="4"> 4</label>
+<label><input type="radio" name="q26" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>27. Suprir carências práticas na igreja com alegria.</p>
+<div class="options">
+<label><input type="radio" name="q27" value="1" required> 1</label>
+<label><input type="radio" name="q27" value="2"> 2</label>
+<label><input type="radio" name="q27" value="3"> 3</label>
+<label><input type="radio" name="q27" value="4"> 4</label>
+<label><input type="radio" name="q27" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>28. Falar o que Deus manda, mesmo que seja desafiador.</p>
+<div class="options">
+<label><input type="radio" name="q28" value="1" required> 1</label>
+<label><input type="radio" name="q28" value="2"> 2</label>
+<label><input type="radio" name="q28" value="3"> 3</label>
+<label><input type="radio" name="q28" value="4"> 4</label>
+<label><input type="radio" name="q28" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>29. Aprofundar-me no estudo da Bíblia e compartilhar esse conhecimento.</p>
+<div class="options">
+<label><input type="radio" name="q29" value="1" required> 1</label>
+<label><input type="radio" name="q29" value="2"> 2</label>
+<label><input type="radio" name="q29" value="3"> 3</label>
+<label><input type="radio" name="q29" value="4"> 4</label>
+<label><input type="radio" name="q29" value="5"> 5</label>
+</div>
+</div>
+
+<div class="question">
+<p>30. Acompanhar pessoas no cuidado contínuo, como um pastor de almas.</p>
+<div class="options">
+<label><input type="radio" name="q30" value="1" required> 1</label>
+<label><input type="radio" name="q30" value="2"> 2</label>
+<label><input type="radio" name="q30" value="3"> 3</label>
+<label><input type="radio" name="q30" value="4"> 4</label>
+<label><input type="radio" name="q30" value="5"> 5</label>
+</div>
+</div>
+</fieldset>
+
+<button type="submit">Calcular Resultados</button>
+</form>
+
+<div id="results"></div>
+
+<script>
+document.getElementById('testForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+// Mapeamento dos dons espirituais e suas perguntas
+const mapping = {
+"Ensino": [1, 9, 19, 29],
+"Profecia": [8, 18, 28],
+"Discernimento": [2, 12, 22],
+"Fé": [3, 13, 23],
+"Misericórdia": [4, 14, 24],
+"Liderança": [5, 15, 25],
+"Exortação": [6, 11, 26],
+"Serviço": [7, 17, 27],
+"Pastoreio": [10, 20, 30]
+};
+
+// Inicializa pontuações para cada dom
+const scores = {
+"Ensino": 0,
+"Profecia": 0,
+"Discernimento": 0,
+"Fé": 0,
+"Misericórdia": 0,
+"Liderança": 0,
+"Exortação": 0,
+"Serviço": 0,
+"Pastoreio": 0
+};
+
+// Soma as respostas de cada domínio
+for (const domain in mapping) {
+mapping[domain].forEach(qNum => {
+const radios = document.getElementsByName('q' + qNum);
+let value = 0;
+for (let radio of radios) {
+if (radio.checked) {
+value = parseInt(radio.value);
+break;
+}
+}
+scores[domain] += value;
+});
+}
+
+// Ordena os resultados
+const resultsArray = [];
+for (const domain in scores) {
+resultsArray.push({ domain: domain, score: scores[domain] });
+}
+resultsArray.sort((a, b) => b.score - a.score);
+
+// Seleciona os 3 maiores pontuadores
+const top3 = resultsArray.slice(0, 3);
+
+// Exibe os resultados
+let output = "<h2>Resultados</h2>";
+output += "<h3>Pontuação por Dom Espiritual:</h3><ul>";
+resultsArray.forEach(item => {
+output += "<li>" + item.domain + ": " + item.score + "</li>";
+});
+output += "</ul>";
+
+output += "<h3>Top 3 Dons Espirituais:</h3><ol>";
+top3.forEach(item => {
+output += "<li>" + item.domain + " (Pontuação: " + item.score + ")</li>";
+});
+output += "</ol>";
+
+output += "<p>Os 3 maiores pontuadores revelam áreas fortes onde Deus pode estar te usando ou querendo te despertar.</p>";
+
+document.getElementById('results').innerHTML = output;
+});
+</script>
+</div>
 </body>
 </html>
